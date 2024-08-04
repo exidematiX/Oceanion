@@ -1,0 +1,53 @@
+[gd_scene load_steps=6 format=3 uid="uid://dsi7fbyfpomyo"]
+
+[ext_resource type="Script" path="res://scripts/scene_transition.gd" id="1_v61h8"]
+[ext_resource type="Texture2D" uid="uid://dl13wu0jpvqst" path="res://art/spirite/transition_bg_0.png" id="2_o5nkh"]
+
+[sub_resource type="Animation" id="Animation_qw6l2"]
+length = 0.001
+loop_mode = 2
+
+[sub_resource type="Animation" id="Animation_xql55"]
+resource_name = "move_in"
+length = 0.5
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Image:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(577, -0.25, 0, 0.25, 0, 577, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.5)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Image:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(-356, -0.25, 0, 0.25, 0, 320, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.5)
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_mm83m"]
+_data = {
+"RESET": SubResource("Animation_qw6l2"),
+"move_in": SubResource("Animation_xql55")
+}
+
+[node name="scene_transition" type="CanvasLayer"]
+script = ExtResource("1_v61h8")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_mm83m")
+}
+
+[node name="Image" type="Sprite2D" parent="."]
+position = Vector2(577, -356)
+scale = Vector2(1.38407, 1.32101)
+texture = ExtResource("2_o5nkh")

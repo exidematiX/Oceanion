@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://lw0o78bn85mk"]
+
+[ext_resource type="PackedScene" uid="uid://cdapqb81egp4x" path="res://art/model/environment/Island_middle_green_1.glb" id="1_tvbgu"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_d50cl"]
+height = 34.0
+radius = 8.14362
+
+[node name="IslandMiddle0" type="StaticBody3D" groups=["Island"]]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0, 0)
+collision_mask = 64
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("CylinderShape3D_d50cl")
+
+[node name="Island_middle_green_1" parent="." instance=ExtResource("1_tvbgu")]

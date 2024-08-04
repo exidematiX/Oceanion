@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://buxktesfuoybc"]
+
+[ext_resource type="PackedScene" uid="uid://bjo2h4vq4qs7h" path="res://scene/ui/menu_ui.tscn" id="1_dbdia"]
+[ext_resource type="PackedScene" uid="uid://dsi7fbyfpomyo" path="res://scene/ui/transition.tscn" id="2_gsfa2"]
+
+[node name="main_menu" type="Node2D"]
+
+[node name="menu" parent="." instance=ExtResource("1_dbdia")]
+
+[node name="transition" parent="." instance=ExtResource("2_gsfa2")]

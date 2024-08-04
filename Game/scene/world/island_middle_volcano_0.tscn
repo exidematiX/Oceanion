@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://bu8dsrmsb85a1"]
+
+[ext_resource type="PackedScene" uid="uid://bfv1bjfl7a7jp" path="res://art/model/environment/Island_middle_volcano_0.glb" id="1_wl36h"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_tnebc"]
+radius = 3.529
+height = 19.692
+
+[node name="island_middle_volcano_0" type="StaticBody3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(0.964815, -0.008479, 0.262793, 0, 0.99948, 0.0322481, -0.26293, -0.0311134, 0.964313, -4.94731, 0.091876, -0.339273)
+shape = SubResource("CapsuleShape3D_tnebc")
+
+[node name="Island_middle_volcano_0" parent="." instance=ExtResource("1_wl36h")]

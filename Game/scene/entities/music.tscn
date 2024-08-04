@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://o3b8jldpaysg"]
+
+[ext_resource type="AudioStream" uid="uid://pdpklefjhf4u" path="res://audio/separation-185196.mp3" id="1_bqa5t"]
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_36hp4"]
+resource_local_to_scene = true
+streams_count = 2
+stream_0/stream = ExtResource("1_bqa5t")
+stream_0/weight = 1.0
+stream_1/stream = ExtResource("1_bqa5t")
+stream_1/weight = 1.0
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer"]
+stream = SubResource("AudioStreamRandomizer_36hp4")
+volume_db = 8.0
+autoplay = true

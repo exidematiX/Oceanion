@@ -1,0 +1,84 @@
+[gd_scene load_steps=13 format=3 uid="uid://cno6uck2m76u"]
+
+[ext_resource type="PackedScene" uid="uid://b2fwdqf1tuft5" path="res://scene/entities/player.tscn" id="1_cofa0"]
+[ext_resource type="Script" path="res://scripts/map_manager.gd" id="2_efdwh"]
+[ext_resource type="Script" path="res://scripts/tile_pool.gd" id="3_x2cea"]
+[ext_resource type="PackedScene" uid="uid://dgcx3h7mrxjag" path="res://scene/world/water.tscn" id="4_4fkvq"]
+[ext_resource type="Script" path="res://scripts/camera.gd" id="5_vr2yd"]
+[ext_resource type="PackedScene" uid="uid://bx3jl5jye0l5p" path="res://scene/ui/InGame.tscn" id="7_iqr80"]
+[ext_resource type="PackedScene" uid="uid://dsi7fbyfpomyo" path="res://scene/ui/transition.tscn" id="8_70h0c"]
+[ext_resource type="PackedScene" uid="uid://coy7isx3pcmrg" path="res://scene/world/island_manager.tscn" id="9_57rdt"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_w2pna"]
+size = Vector3(20.4694, 1, 5.24339)
+
+[sub_resource type="BoxMesh" id="BoxMesh_ntoyx"]
+size = Vector3(60, 3, 60)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nd2dk"]
+transparency = 1
+albedo_color = Color(0, 0, 0.384314, 0.709804)
+
+[sub_resource type="LabelSettings" id="LabelSettings_qllsy"]
+
+[node name="Main" type="Node3D"]
+
+[node name="Player" parent="." instance=ExtResource("1_cofa0")]
+unique_name_in_owner = true
+transform = Transform3D(0.999266, 0, 0.0383181, 0, 1, 0, -0.0383181, 0, 0.999266, 0, 1, 0)
+
+[node name="MapManager" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 1.2054e-10, -2.15192e-10, 3.32914e-09, 1, -4.11934e-09, 2.01214e-09, -1.39898e-09, 3.71051, 0.0158691, -1.79569, -72.0936)
+script = ExtResource("2_efdwh")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MapManager"]
+transform = Transform3D(1, -1.2054e-10, 5.79951e-11, -3.32914e-09, 1, 1.11018e-09, -2.01214e-09, 1.39898e-09, 1, 4.84288e-08, 1.19209e-07, 18.4141)
+shape = SubResource("BoxShape3D_w2pna")
+
+[node name="Ocean" type="MeshInstance3D" parent="MapManager"]
+transform = Transform3D(5.29219, -8.1134e-20, 6.80055e-17, -7.19132e-15, 1, 1.76366e-17, -4.59447e-16, -7.11408e-18, 1, 0, 0, 0)
+visible = false
+mesh = SubResource("BoxMesh_ntoyx")
+surface_material_override/0 = SubResource("StandardMaterial3D_nd2dk")
+
+[node name="TilePool" type="Node" parent="MapManager"]
+script = ExtResource("3_x2cea")
+
+[node name="Water" parent="MapManager/TilePool" instance=ExtResource("4_4fkvq")]
+skeleton = NodePath("../../..")
+
+[node name="IslandManager" parent="MapManager" instance=ExtResource("9_57rdt")]
+transform = Transform3D(1, -1.2054e-10, 5.79953e-11, -3.32914e-09, 1, 1.11018e-09, -5.42281e-10, 3.77032e-10, 0.269505, -0.0158691, 1.79569, 19.4296)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.583981, 0.811768, 0, -0.811768, 0.583981, 0.00675777, 40.1279, 21.5218)
+light_color = Color(0.937255, 0.988235, 0.921569, 1)
+shadow_enabled = true
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, -6.61199e-16, 1.55081e-16, 1.68564e-16, 0.462847, 0.886438, -6.57891e-16, -0.886438, 0.462847, 0.128, 23.1951, 3.11894)
+fov = 59.5
+size = 12.0
+near = 0.01
+
+[node name="CameraPivot" type="Marker3D" parent="."]
+transform = Transform3D(0.999266, 0, 0.0383181, 0, 1, 0, -0.0383181, 0, 0.999266, 0.128, 23.195, 3.119)
+script = ExtResource("5_vr2yd")
+player_path = NodePath("../Player")
+
+[node name="UI" type="Node" parent="."]
+
+[node name="InGame" parent="UI" instance=ExtResource("7_iqr80")]
+
+[node name="Label" type="Label" parent="UI/InGame"]
+modulate = Color(0, 0, 0, 1)
+offset_left = 85.0
+offset_top = 28.0
+offset_right = 157.0
+offset_bottom = 54.0
+text = "0"
+label_settings = SubResource("LabelSettings_qllsy")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="scene_transition" parent="UI" instance=ExtResource("8_70h0c")]

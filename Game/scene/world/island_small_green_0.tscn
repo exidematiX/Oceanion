@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://p87wn3nmep3b"]
+
+[ext_resource type="Material" uid="uid://c0xaamn8a12m7" path="res://art/Outline.material" id="1_jrsft"]
+[ext_resource type="ArrayMesh" uid="uid://dmqgqvh0xpxfx" path="res://island_small_0.obj" id="2_tayak"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_voxx7"]
+radius = 4.62208
+
+[node name="island_0" type="StaticBody3D"]
+collision_layer = 3
+
+[node name="Island" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08165e-12, 2.08165e-12, 2.08165e-12)
+material_overlay = ExtResource("1_jrsft")
+mesh = ExtResource("2_tayak")
+skeleton = NodePath("")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0805209, 0.52185, -0.612057)
+shape = SubResource("CylinderShape3D_voxx7")

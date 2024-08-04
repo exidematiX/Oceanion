@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=3 uid="uid://8pbl110cbkai"]
+
+[ext_resource type="Texture2D" uid="uid://c010g261yumok" path="res://art/spirite/ui_cashbar_0.png" id="1_jgwew"]
+
+[node name="MoneyBar" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 9.0
+offset_top = 1.0
+offset_right = 175.0
+offset_bottom = 41.0
+texture = ExtResource("1_jgwew")

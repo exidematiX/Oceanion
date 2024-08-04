@@ -1,0 +1,27 @@
+﻿<Properties StartupConfiguration="{54974E85-7F3E-EEB0-F432-017FB6690285}|">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Outline.shader">
+    <Files>
+      <File FileName="Assets/BoatController.cs" />
+      <File FileName="Assets/Cartoon.shader" />
+      <File FileName="Assets/Outline.shader" Line="49" Column="1" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="Oceanion" expanded="True">
+            <Node name="Assets" expanded="True">
+              <Node name="Environment" expanded="True" />
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="e93d017f-929c-45c3-871a-36a8d50854f3" />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+</Properties>
