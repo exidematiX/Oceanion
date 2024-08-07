@@ -6,7 +6,7 @@ func change_scene(target: String) -> void:
 	#get_tree().change_scene_to_file(target)
 	var scene_tree = get_tree()
 	if scene_tree:
-		scene_tree.reload_current_scene()
+		get_tree().change_scene_to_file("res://scene/game.tscn")
 	else:
 		print("Failed to get the scene tree.")
 	$AnimationPlayer.play_backwards("move_in")

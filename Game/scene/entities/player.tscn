@@ -24,7 +24,7 @@ shape = SubResource("BoxShape3D_d23bf")
 transform = Transform3D(1, 1.3411e-07, -5.21805e-15, 0, -4.37114e-08, -1, -1.3411e-07, 1, -4.37114e-08, 0.0243633, 0.349863, -1.69162)
 
 [node name="Timer" type="Timer" parent="."]
-wait_time = 5.764
+wait_time = 3.0
 one_shot = true
 
 [connection signal="child_entered_tree" from="CollisionShape3D" to="." method="_on_collision_shape_3d_child_entered_tree"]

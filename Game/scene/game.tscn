@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://cno6uck2m76u"]
+[gd_scene load_steps=14 format=3 uid="uid://cno6uck2m76u"]
 
 [ext_resource type="PackedScene" uid="uid://b2fwdqf1tuft5" path="res://scene/entities/player.tscn" id="1_cofa0"]
 [ext_resource type="Script" path="res://scripts/map_manager.gd" id="2_efdwh"]
@@ -7,6 +7,7 @@
 [ext_resource type="Script" path="res://scripts/camera.gd" id="5_vr2yd"]
 [ext_resource type="PackedScene" uid="uid://bx3jl5jye0l5p" path="res://scene/ui/InGame.tscn" id="7_iqr80"]
 [ext_resource type="PackedScene" uid="uid://dsi7fbyfpomyo" path="res://scene/ui/transition.tscn" id="8_70h0c"]
+[ext_resource type="Texture2D" uid="uid://cx4dulr0vl3y" path="res://icon.svg" id="8_evaay"]
 [ext_resource type="PackedScene" uid="uid://coy7isx3pcmrg" path="res://scene/world/island_manager.tscn" id="9_57rdt"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_w2pna"]
@@ -70,7 +71,7 @@ player_path = NodePath("../Player")
 
 [node name="InGame" parent="UI" instance=ExtResource("7_iqr80")]
 
-[node name="Label" type="Label" parent="UI/InGame"]
+[node name="Money" type="Label" parent="UI/InGame"]
 modulate = Color(0, 0, 0, 1)
 offset_left = 85.0
 offset_top = 28.0
@@ -80,5 +81,33 @@ text = "0"
 label_settings = SubResource("LabelSettings_qllsy")
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="Distance" type="Label" parent="UI/InGame"]
+modulate = Color(0, 0, 0, 1)
+anchors_preset = -1
+anchor_right = 0.017
+anchor_bottom = 0.018
+offset_left = 262.0
+offset_top = 27.0
+offset_right = 322.416
+offset_bottom = 52.336
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Life1" type="Sprite2D" parent="UI/InGame"]
+position = Vector2(53, 602)
+scale = Vector2(0.560001, 0.560001)
+texture = ExtResource("8_evaay")
+
+[node name="Life2" type="Sprite2D" parent="UI/InGame"]
+position = Vector2(153, 602)
+scale = Vector2(0.560001, 0.560001)
+texture = ExtResource("8_evaay")
+
+[node name="Life3" type="Sprite2D" parent="UI/InGame"]
+position = Vector2(253, 602)
+scale = Vector2(0.560001, 0.560001)
+texture = ExtResource("8_evaay")
 
 [node name="scene_transition" parent="UI" instance=ExtResource("8_70h0c")]
